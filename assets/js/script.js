@@ -6,7 +6,7 @@ $("#currentDay").text(currentDate);
 
 /* save task function */
 $(".saveBtn").on("click", function() {
-    alert("Task Saved!");
+    //alert("Task Saved!");
 
     /* created an ID for each time block in div element */
     var time = $(this)
@@ -45,18 +45,18 @@ var colorTimeBlock = function() {
 
         // if/else to color-code time blocks
         if(timeBlock < currentTime) {
-            $(this).removeClass("future");
-            $(this).removeClass("present");
             $(this).addClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("future");
         }
         else if(timeBlock === currentTime) {
             $(this).removeClass("past");
-            $(this).removeClass("future");
             $(this).addClass("present");
+            $(this).removeClass("future");
         }
         else {
-            $(this).removeClass("present");
             $(this).removeClass("past");
+            $(this).removeClass("present");
             $(this).addClass("future");
         }
     })

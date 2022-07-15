@@ -21,15 +21,15 @@ $(".saveBtn").on("click", function() {
 });
 
 /* get local storage information */
-$("#9AM .description").val(localStorage.getItem("9AM"));
-$("#10AM .description").val(localStorage.getItem("10AM"));
-$("#11AM .description").val(localStorage.getItem("11AM"));
-$("#12PM .description").val(localStorage.getItem("12PM"));
-$("#1PM .description").val(localStorage.getItem("1PM"));
-$("#2PM .description").val(localStorage.getItem("2PM"));
-$("#3PM .description").val(localStorage.getItem("3PM"));
-$("#4PM .description").val(localStorage.getItem("4PM"));
-$("#5PM .description").val(localStorage.getItem("5PM"));
+$("#time9AM .description").val(localStorage.getItem("time9AM"));
+$("#time10AM .description").val(localStorage.getItem("time10AM"));
+$("#time11AM .description").val(localStorage.getItem("time11AM"));
+$("#time12PM .description").val(localStorage.getItem("time12PM"));
+$("#time1PM .description").val(localStorage.getItem("time1PM"));
+$("#time2PM .description").val(localStorage.getItem("time2PM"));
+$("#time3PM .description").val(localStorage.getItem("time3PM"));
+$("#time4PM .description").val(localStorage.getItem("time4PM"));
+$("#time5PM .description").val(localStorage.getItem("time5PM"));
 
 /* function for colored time block: past, present and future */
 var colorTimeBlock = function() {
@@ -40,7 +40,7 @@ var colorTimeBlock = function() {
     $(".time-block").each(function() {
         var timeBlock = parseInt($(this)
             .attr("id")
-            .split("hour")[1]
+            .split("time")[1]
             );
 
         // if/else to color-code time blocks

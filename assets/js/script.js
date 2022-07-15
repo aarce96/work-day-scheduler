@@ -12,7 +12,7 @@ $(".saveBtn").on("click", function() {
     var time = $(this)
         .parent()
         .attr("id");
-    /* each time block has a class of description */
+    /* each text area has a class of description */
     var text = $(this)
         .siblings(".description")
         .val();
@@ -30,3 +30,37 @@ $("#2PM .description").val(localStorage.getItem("2PM"));
 $("#3PM .description").val(localStorage.getItem("3PM"));
 $("#4PM .description").val(localStorage.getItem("4PM"));
 $("#5PM .description").val(localStorage.getItem("5PM"));
+
+/* function for colored time block: past, present and future */
+var colorTimeBlock = function() {
+    /* get current hour */
+    var currentTime = moment().hour();
+
+    // loop through each function
+    $(".time-block").each(function() {
+        var timeBlock = parseInt($(this)
+            .attr("id")
+            .split("hour")[1]
+            );
+
+        // if/else to color-code time blocks
+        if(timeBlock < currentTime) {
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+            $(this).addClass("past");
+        }
+        else if(timeBlock === currentTime) {
+            $(this).removeClass("past");
+            $(this).removeClass("future");
+            $(this).addClass("present");
+        }
+        else {
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+        }
+    })
+};
+
+/* call the function */
+colorTimeBlock();
